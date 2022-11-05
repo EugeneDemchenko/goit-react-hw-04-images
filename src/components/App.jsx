@@ -19,8 +19,8 @@ class App extends Component {
     return (
       <div>
         <Searchbar />
-        <ImageGallery />
-        <button type="button" onClick={this.toggleModal}>open modal</button>
+        <ImageGallery openModal={this.toggleModal} />
+        {/* <button type="button" onClick={this.toggleModal}>open modal</button> */}
         {showModal && (<Modal onClose={this.toggleModal}>
           <h1>Lorem ipsum dolor sit amet.</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, corrupti!</p>
