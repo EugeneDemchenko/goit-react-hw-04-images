@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import Modal from "components/Modal/Modal";
+import ImageGalleryItem from "components/ImageGalleryItem/ImageGalleryItem";
 // import PropTypes from 'prop-types'
 import './ImageGallery.css'
 
 class ImageGallery extends Component {
     state = {
-        showModal: false,
         articles: [],
     }
     componentDidUpdate(prevProps, prevState) {
@@ -15,23 +14,20 @@ class ImageGallery extends Component {
                 .then(articles => this.setState({ articles }))
         }
     }
-        toggleModal = () => {
-            this.setState(({showModal}) => ({
-                showModal: !showModal,
-            }))
-        }
-    render() {
-            const {showModal} = this.state
 
+    render() {
         return (
             <ul className="gallery">
                 {this.state.articles.total === 0 && <h1>can't find images by '{this.props.searchQuery}'</h1>}
                 {this.state.articles.length !== 0 && this.state.articles.hits.map(({ id, webformatURL, tags, largeImageURL }) => (
-                    <li key={id} className="gallery-item" onClick={this.toggleModal}>
-                        <img src={webformatURL} alt={tags} className="gallery-image" />
-                    </li>
+                    <ImageGalleryItem
+                        key={id}
+                        src={webformatURL}
+                        name={tags}
+                        modalSrc={largeImageURL}
+                    />
                 ))}
-                {showModal && (<Modal onClose={this.toggleModal} />)}
+  
             </ul>
         )
     }

@@ -19,7 +19,7 @@ export default class Modal extends Component {
         }
     }
     handleBackdropClick = e => {
-        if (e.currentTarget === e.target) {
+        if (e.currentTarget !== e.target) {
             this.props.onClose()
         }
     }
@@ -28,8 +28,8 @@ export default class Modal extends Component {
           return  createPortal(
         <div className="overlay" onClick={this.handleBackdropClick}>
             <div className="modal">
-                {this.props.children}
-                {/* <img src="" alt="" /> */}
+                {/* {this.props.children} */}
+                <img src={this.props.modalSrc} alt={this.props.name} />
                 {/* <p>loasfasdfgvszadds df asdf</p> */}
             </div>
               </div>,
