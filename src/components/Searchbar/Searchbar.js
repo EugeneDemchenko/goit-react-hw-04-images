@@ -25,7 +25,7 @@ class Searchbar extends Component {
     render() {
         return (<header className="searchbar">
             <form className="form" onSubmit={this.handleSubmit}>
-                <button type="submit" className="button">
+                <button type="submit" className="searchButton">
                     <BsSearch style={{ height: 20, width: 20, fill: 'red'}} />
                 </button>
 
