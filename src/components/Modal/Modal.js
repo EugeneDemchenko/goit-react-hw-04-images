@@ -25,30 +25,14 @@ export default class Modal extends Component {
     }
 
     render() {
+        const {modalSrc, name} = this.props
           return  createPortal(
         <div className="overlay" onClick={this.handleBackdropClick}>
             <div className="modal">
-                {/* {this.props.children} */}
-                <img src={this.props.modalSrc} alt={this.props.name} />
-                {/* <p>loasfasdfgvszadds df asdf</p> */}
+                <img src={modalSrc} alt={name} />
             </div>
-              </div>,
+        </div>,
               modalRoot,
     )  
     }
 }
-
-
-// const Modal = () => {
-//     return (
-//         <div className="overlay">
-//             <div className="modal">
-//                 {this.props.children}
-//                 {/* <img src="" alt="" /> */}
-//                 {/* <p>loasfasdfgvszadds df asdf</p> */}
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default Modal
