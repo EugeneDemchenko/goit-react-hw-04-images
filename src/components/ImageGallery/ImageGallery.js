@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import ImageGalleryItem from "components/ImageGalleryItem/ImageGalleryItem";
-import Button from "components/Button/Button";
-import Loader from "components/Loader/Loader";
+import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem";
+import Button from "../Button/Button";
+import Loader from "../Loader/Loader";
 import PropTypes from 'prop-types'
 import './ImageGallery.css'
 
