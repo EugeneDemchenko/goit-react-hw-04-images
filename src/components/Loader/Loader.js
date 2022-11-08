@@ -10,9 +10,10 @@ class Loader extends Component {
                 height="200"
                 width="200"
                 ariaLabel="dna-loading"
-                wrapperStyle={{    display: 'block',
+                wrapperStyle={{
+                    display: 'block',
                     marginLeft: 'auto',
-                marginRight: 'auto'}}
+                    marginRight: 'auto'}}
                 wrapperClass="dna-wrapper"
 
             />

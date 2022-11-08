@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import ImageGalleryItem from "components/ImageGalleryItem/ImageGalleryItem";
 import Button from "components/Button/Button";
 import Loader from "components/Loader/Loader";
-
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import './ImageGallery.css'
 
 class ImageGallery extends Component {
@@ -47,7 +46,7 @@ class ImageGallery extends Component {
     render() {
         return (<>
             <ul className="gallery">
-                {!this.state.totalPages && <h1>can't find images by '{this.props.searchQuery}'</h1>}
+                {!this.state.totalPages && <h1 className="errorMsg">can't find images by name '{this.props.searchQuery}'</h1>}
                 {this.state.articles.length !== 0 && this.state.articles.map(({ id, webformatURL, tags, largeImageURL }) => (
                     <ImageGalleryItem
                         key={id}
@@ -67,3 +66,7 @@ class ImageGallery extends Component {
 }
 
 export default ImageGallery
+
+ImageGallery.propTypes = {
+    searchQuery: PropTypes.string.isRequired,
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BsSearch } from 'react-icons/bs';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import './Searchbar.css'
 
 class Searchbar extends Component {
@@ -32,8 +32,6 @@ class Searchbar extends Component {
                 <input
                     className="input"
                     type="text"
-                    // autocomplete="off"
-                    // autofocus
                     placeholder="Search images and photos"
                     value = {this.state.searchQuery}
                     onChange={this.handleSearchChange}
@@ -45,3 +43,6 @@ class Searchbar extends Component {
 
 export default Searchbar
 
+Searchbar.propTypes = {
+    submit: PropTypes.func.isRequired
+}
