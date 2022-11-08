@@ -10,6 +10,7 @@ class Button extends Component {
             <button
                 className="loadButton"
                 type='button'
+                style={{display:'block'}}
                 onClick={this.props.loadMore}>Load More</button>
         )
     }
