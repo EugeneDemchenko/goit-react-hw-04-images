@@ -154,5 +154,5 @@ export default function ImageGallery({requestImg}) {
 // export default ImageGallery
 
 ImageGallery.propTypes = {
-    searchQuery: PropTypes.string.isRequired,
+    requestImg: PropTypes.string.isRequired,
 }
