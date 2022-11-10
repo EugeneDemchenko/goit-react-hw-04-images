@@ -12,7 +12,7 @@ export default function App() {
     <div>
       <Searchbar submit={setSearchQuery} />
       <ImageGallery
-        searchQuery={searchQuery}
+        requestImg={searchQuery}
       />
     </div>
   );    
