@@ -6,12 +6,6 @@ import './Modal.css'
 const modalRoot = document.querySelector('#modal-root');
 
 export default function Modal({ name, modalSrc, onClose }) {
-    useEffect(() => {
-        window.addEventListener('keydown', handleKeyDown);
-        return () => {
-            window.removeEventListener('keydown', handleKeyDown)    
-        }
-    },[])
 
     const handleKeyDown = e => {
         if (e.code === 'Escape') {
@@ -24,6 +18,13 @@ export default function Modal({ name, modalSrc, onClose }) {
         }
     }
 
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)    
+        }
+    })
+    
     return  createPortal(
         <div className="overlay" onClick={handleBackdropClick}>
             <div className="modal">
