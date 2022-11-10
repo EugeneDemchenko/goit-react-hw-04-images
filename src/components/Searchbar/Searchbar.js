@@ -1,47 +1,42 @@
-import React, { Component } from "react";
+import  { useState } from "react";
 import { BsSearch } from 'react-icons/bs';
 import PropTypes from 'prop-types'
 import './Searchbar.css'
 
-class Searchbar extends Component {
-    
-    state = {
-        searchQuery: '',
-    }
+export default function Searchbar({submit}) {
+    const [searchQuery, setSearchQuery] = useState('')
 
-    handleSearchChange = e => {
-        this.setState({ searchQuery: e.currentTarget.value.toLowerCase().trim() })
-    }
-    handleSubmit = e => {
+    const handleSearchChange = e => {
+        setSearchQuery(e.currentTarget.value.toLowerCase().trim() )
+    }    
+
+    const handleSubmit = e => {
         e.preventDefault();
-        if (this.state.searchQuery.trim() === '') {
+        if (searchQuery.trim() === '') {
             alert('Empty field')
             return
         }
-        this.props.submit(this.state.searchQuery);
-        this.setState({ searchQuery: ''})
+        submit(searchQuery);
+        setSearchQuery('')
     }
 
-    render() {
-        return (<header className="searchbar">
-            <form className="form" onSubmit={this.handleSubmit}>
-                <button type="submit" className="searchButton">
-                    <BsSearch style={{ height: 20, width: 20, fill: 'red'}} />
-                </button>
+    return (<header className="searchbar">
+        <form className="form" onSubmit={handleSubmit}>
+            <button type="submit" className="searchButton">
+                <BsSearch style={{ height: 20, width: 20, fill: 'red'}} />
+            </button>
 
-                <input
-                    className="input"
-                    type="text"
-                    placeholder="Search images and photos"
-                    value = {this.state.searchQuery}
-                    onChange={this.handleSearchChange}
-                />
-            </form>
-        </header>)
-    }
+            <input
+                className="input"
+                type="text"
+                placeholder="Search images and photos"
+                value = {searchQuery}
+                onChange={handleSearchChange}
+            />
+        </form>
+    </header>
+    )
 }
-
-export default Searchbar
 
 Searchbar.propTypes = {
     submit: PropTypes.func.isRequired
